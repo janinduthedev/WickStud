@@ -1,26 +1,84 @@
 @import "tailwindcss";
 
+@theme {
+  --font-sans: var(--font-jakarta), ui-sans-serif, system-ui;
+  --font-logo: var(--font-syncopate), sans-serif;
+  --color-accent: #22c55e;
+}
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #000000;
+  --foreground: #ffffff;
+  --accent: #22c55e;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/* --- Lenis Smooth Scroll Fixes --- */
+html.lenis {
+  height: auto;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+.lenis.lenis-smooth {
+  /* Lenis නිවැරදිව වැඩ කිරීමට browser scroll behavior එක auto විය යුතුයි */
+  scroll-behavior: auto !important; 
 }
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+/* --------------------------------- */
 
 body {
-  background: var(--background);
+  background-color: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans);
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #000;
+}
+::-webkit-scrollbar-thumb {
+  background: #1a1a1a;
+  border-radius: 10px;
+  border: 2px solid #000;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent);
+}
+
+::selection {
+  background-color: var(--accent);
+  color: #000;
+}
+
+section {
+  will-change: transform, opacity;
+}
+
+/* SweetAlert open වුණාම body එකේ padding සහ overflow පාලනය කරන්න */
+body.swal2-shown {
+  padding-right: 0px !important;
+  overflow: auto !important; /* Scrollbar එක දිගටම තියාගන්නවා */
+}
+
+html.swal2-shown {
+  overflow: auto !important;
+}
+
+/* SweetAlert background එක ආවත් සයිට් එක හොලවන්න එපා කියලා කියනවා */
+.swal2-backdrop-show {
+  scrollbar-gutter: stable;
 }
