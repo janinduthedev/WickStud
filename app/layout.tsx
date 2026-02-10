@@ -19,7 +19,7 @@ const syncopate = Syncopate({
 
 export const metadata: Metadata = {
   title: "Janindu | Full-Stack Developer",
-  description: "Next.js සහ MERN පාවිච්චි කරලා හදපු මගේ portfolio එක",
+  description: "My Portfolio",
 };
 
 export default function RootLayout({
