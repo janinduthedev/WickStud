@@ -12,25 +12,24 @@
   --accent: #22c55e;
 }
 
-/* --- Lenis Smooth Scroll Fixes --- */
+/* --- Lenis & Mobile Refresh FIX --- */
 html.lenis {
   height: auto;
 }
 
 .lenis.lenis-smooth {
-  /* Lenis නිවැරදිව වැඩ කිරීමට browser scroll behavior එක auto විය යුතුයි */
-  scroll-behavior: auto !important; 
+  scroll-behavior: auto !important;
+}
+
+/* වැදගත්ම කොටස: Mobile gestures වලට ඉඩ දීම */
+html, body {
+  overscroll-behavior-y: auto !important; 
+  touch-action: auto !important;
 }
 
 .lenis.lenis-smooth [data-lenis-prevent] {
   overscroll-behavior: contain;
 }
-
-.lenis.lenis-stopped {
-  overflow: hidden;
-}
-
-/* --------------------------------- */
 
 body {
   background-color: var(--background);
@@ -40,7 +39,6 @@ body {
   padding: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-rendering: optimizeLegibility;
 }
 
 /* Scrollbar Styling */
@@ -62,23 +60,4 @@ body {
 ::selection {
   background-color: var(--accent);
   color: #000;
-}
-
-section {
-  will-change: transform, opacity;
-}
-
-/* SweetAlert open වුණාම body එකේ padding සහ overflow පාලනය කරන්න */
-body.swal2-shown {
-  padding-right: 0px !important;
-  overflow: auto !important; /* Scrollbar එක දිගටම තියාගන්නවා */
-}
-
-html.swal2-shown {
-  overflow: auto !important;
-}
-
-/* SweetAlert background එක ආවත් සයිට් එක හොලවන්න එපා කියලා කියනවා */
-.swal2-backdrop-show {
-  scrollbar-gutter: stable;
 }
