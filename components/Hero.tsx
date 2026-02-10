@@ -27,7 +27,7 @@ const Hero = () => {
           whileInView={{ opacity: 1, y: 0 }} // පේනකොට ලස්සනට උඩට එනවා
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.8, ease: [0.4, 0, 0.2, 1] }}
-          className="grid grid-cols-1 lg:grid-cols-3 gap-12 items-center mb-20"
+          className="grid grid-cols-1 lg:grid-cols-3 gap-12 items-center"
         >
           {/* Left Side */}
           <div className="order-2 lg:order-1 text-center lg:text-left">
@@ -114,11 +114,11 @@ const Hero = () => {
         <motion.div
           className="flex whitespace-nowrap"
           animate={{ x: ["0%", "-50%"] }}
-          transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
+          transition={{ duration: 5, repeat: Infinity, ease: "linear" }}
         >
           {[...techs, ...techs].map((tech, index) => (
             <div key={index} className="flex items-center gap-6 mx-12">
-              <span className="text-white font-logo text-lg md:text-xl uppercase tracking-tighter hover:text-green-500 transition-colors cursor-default">
+              <span className="text-white font-logo text- md:text-xl uppercase tracking-tighter hover:text-green-500 transition-colors cursor-default">
                 {tech}
               </span>
               <div className="w-2 h-2 bg-green-500 rounded-full shadow-[0_0_8px_rgba(34,197,94,0.4)]"></div>
